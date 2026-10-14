@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>The buyer comparison worksheet | SwishDM</title>
+<meta name="description" content="Ask ChatGPT, Gemini and Perplexity the questions your customers ask when they compare you with a competitor. Log the answers and the pages they cite, then decide which pages to fix.">
+<meta property="og:title" content="The buyer comparison worksheet | SwishDM">
+<meta property="og:description" content="Run the same buyer comparison check we run: your brand, one real competitor, the questions customers ask, logged and read honestly.">
+<meta property="og:site_name" content="SwishDM">
+<link rel="icon" href="https://swishdm.com/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@500;600;700&display=swap">
+<style>
+:root{
+  --navy:#010d68; --orange:#fc5b06; --orange-deep:#ce4700; --blue:#0668fc; --blue-deep:#0a5fdf;
+  --ink:#3b302b; --muted:#6b5f59; --cream:#faf7f0; --sand:#f2efe4; --line:#e4ddd2; --white:#fff;
+  --head:"Oswald",system-ui,sans-serif; --body:"Lato",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--white);color:var(--ink);font:17px/1.65 var(--body);-webkit-text-size-adjust:100%}
+img{max-width:100%;height:auto}
+a{color:var(--blue-deep)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.narrow{max-width:760px}
+h1,h2,h3{font-family:var(--head);color:var(--navy);line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(34px,6vw,60px);font-weight:700;letter-spacing:-.005em}
+h2{font-size:clamp(27px,3.6vw,40px);font-weight:700}
+h3{font-size:21px;font-weight:600}
+p{margin:0 0 1em}
+.eyebrow{font-family:var(--head);font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin:0 0 14px}
+.accent{color:var(--orange)}
+.blue{color:var(--blue)}
+
+/* header */
+.top{border-bottom:1px solid var(--line);background:var(--white)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.logo img{display:block;height:34px;width:auto}
+.top-tag{font-family:var(--head);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);border:1px solid var(--line);border-radius:999px;padding:6px 14px;white-space:nowrap}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 15px/1 var(--body);border-radius:999px;padding:14px 22px;text-decoration:none;border:0;cursor:pointer;min-height:46px}
+.btn-blue{background:var(--blue);color:#fff}.btn-blue:hover{background:var(--blue-deep)}
+.btn-orange{background:var(--orange);color:#fff}.btn-orange:hover{background:var(--orange-deep)}
+.btn-ghost{background:var(--white);color:var(--navy);border:1.5px solid var(--navy)}.btn-ghost:hover{background:var(--cream)}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px}
+
+/* hero */
+.hero{padding:64px 0 56px;text-align:center}
+.hero h1{max-width:900px;margin:0 auto 22px}
+.hero .lead{font-size:19px;max-width:700px;margin:0 auto 30px;color:var(--ink)}
+.hero .btn-row{justify-content:center}
+.specs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:34px auto 0;padding:0;list-style:none;max-width:820px}
+.specs li{background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:15px;color:var(--navy);font-weight:700}
+
+/* sections */
+section{padding:64px 0}
+.band{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.section-head{max-width:760px;margin-bottom:34px}
+.section-head p{font-size:18px}
+
+.need{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+.need div{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:20px}
+.need b{display:block;font-family:var(--head);font-size:18px;color:var(--navy);font-weight:600;margin-bottom:4px}
+.need span{font-size:15px;color:var(--muted)}
+
+/* steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.step{display:grid;grid-template-columns:64px 1fr;gap:20px;background:var(--white);border:1px solid var(--line);border-radius:18px;padding:26px}
+.step .num{font-family:var(--head);font-weight:700;font-size:40px;line-height:1;color:var(--orange)}
+.step h3{margin-bottom:8px}
+.step p:last-child,.step ul:last-child{margin-bottom:0}
+.step ul{margin:0 0 1em;padding-left:20px}
+.step li{margin:4px 0}
+.tip{background:var(--sand);border-left:4px solid var(--orange);padding:14px 16px;border-radius:0 12px 12px 0;font-size:15.5px;margin-top:14px}
+
+/* builder */
+.builder{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 1px 0 rgba(1,13,104,.03)}
+.fields{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:16px;margin-bottom:22px}
+label{display:block;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:6px}
+input,select{width:100%;font:16px var(--body);color:var(--ink);padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--white);min-height:48px}
+input:focus,select:focus{outline:3px solid rgba(6,104,252,.25);border-color:var(--blue)}
+.qgroup h3{font-size:18px;margin:26px 0 12px;display:flex;align-items:center;gap:10px}
+.qgroup h3 small{font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted)}
+.q{border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:12px;background:var(--cream)}
+.q-row{display:grid;grid-template-columns:76px 1fr auto;gap:12px;align-items:start;padding:8px 0}
+.q-row+.q-row{border-top:1px dashed var(--line)}
+.q-tag{font-family:var(--head);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);padding-top:3px;font-weight:600}
+.q-text{font-size:16px;color:var(--ink);overflow-wrap:anywhere}
+.copy{font:700 13px var(--body);color:var(--blue-deep);background:var(--white);border:1.5px solid #cfdcff;border-radius:999px;padding:7px 14px;cursor:pointer;min-height:36px;white-space:nowrap}
+.copy:hover{border-color:var(--blue)}
+.copy.done{color:#166534;border-color:#86efac}
+.placeholder{background:#fff3ea;color:var(--orange-deep);border-radius:4px;padding:0 3px}
+
+/* evidence log */
+.log-actions{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 22px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px;padding:0;list-style:none}
+.legend li{font-size:14px;background:var(--white);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:14px;background:var(--white)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--navy);color:#fff;font-family:var(--head);font-weight:500;letter-spacing:.03em;font-size:13.5px;white-space:nowrap}
+.log-table td{height:44px}
+.log-table td:nth-child(4){width:1%;white-space:nowrap}
+.log-table td.fixed{white-space:nowrap;color:var(--navy);font-weight:700;background:var(--cream)}
+.log-table{min-width:880px}
+.log-sheet{margin-bottom:28px}
+.log-sheet h3{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.log-sheet h3 span{font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted)}
+.tick{display:inline-block;margin-right:6px;font-size:12.5px;white-space:nowrap}
+.tick::before{content:"";display:inline-block;width:11px;height:11px;border:1.5px solid var(--muted);border-radius:2px;margin-right:3px;vertical-align:-1px}
+.csv-note{font-size:15px;color:var(--muted);margin-top:4px}
+.mobile-hint{display:none;font-size:14px;color:var(--muted);margin:0 0 10px}
+.log-preview{margin:0 0 28px;border:1px solid var(--line);border-radius:14px;background:var(--cream);padding:0 18px}
+.log-preview summary{cursor:pointer;font-weight:700;color:var(--navy);padding:16px 0;min-height:48px}
+.log-preview[open]{padding-bottom:4px}
+.log-preview .log-sheet:first-of-type{margin-top:6px}
+
+/* reading */
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:24px}
+.card h3{margin-bottom:10px}
+.card ul{margin:0;padding-left:20px}
+.card li{margin:7px 0}
+.card p:last-child{margin-bottom:0}
+.honest{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.honest div{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:20px}
+.honest b{display:block;font-family:var(--head);color:var(--navy);font-size:18px;font-weight:600;margin-bottom:6px}
+.honest p{margin:0;font-size:16px}
+.owner-list{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:12px 0 0}
+.owner-list li{background:var(--sand);border-radius:999px;padding:6px 12px;font-size:14.5px;margin:0}
+
+.fix-table td:first-child{font-weight:700;color:var(--navy);width:42%}
+.fix-table{min-width:620px}
+
+/* cta */
+.cta{background:var(--navy);color:#e9ecff;border-radius:24px;padding:44px;display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center}
+.cta h2{color:#fff}
+.cta p{color:#d7dcff}
+.cta .pending{display:block;background:rgba(255,255,255,.08);border:1.5px dashed #ffb48a;color:#fff;border-radius:16px;padding:18px 20px;font-size:15px}
+.cta .pending b{color:#ffb48a;display:block;font-family:var(--head);letter-spacing:.08em;text-transform:uppercase;font-size:13px;margin-bottom:6px}
+
+footer{padding:36px 0 48px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center}
+footer img{height:26px;width:auto;display:block}
+
+@media (max-width:900px){
+  .need{grid-template-columns:1fr 1fr}
+  .fields{grid-template-columns:1fr 1fr}
+  .fields .cat{grid-column:1/-1}
+  .cols,.honest{grid-template-columns:1fr}
+  .cta{grid-template-columns:1fr;padding:32px}
+}
+@media (max-width:560px){
+  body{font-size:16.5px}
+  .wrap{padding:0 18px}
+  .top .wrap{min-height:62px}
+  .logo img{height:28px}
+  .top-tag{font-size:11.5px;padding:5px 10px}
+  .hero{padding:44px 0 40px}
+  .hero .lead{font-size:17.5px}
+  section{padding:48px 0}
+  .need{grid-template-columns:1fr}
+  .step{grid-template-columns:1fr;gap:6px;padding:22px}
+  .step .num{font-size:32px}
+  .fields{grid-template-columns:1fr}
+  .builder{padding:18px}
+  .q{padding:12px 14px}
+  .q-row{grid-template-columns:1fr auto;gap:6px 10px}
+  .q-tag{grid-column:1/-1;padding-top:0}
+  .btn-row .btn,.log-actions .btn{width:100%}
+  .mobile-hint{display:block}
+  .cta{padding:26px 22px;border-radius:20px}
+}
+
+/* print */
+.print-only{display:none}
+@media print{
+  @page{size:letter landscape;margin:12mm}
+  body{font-size:11pt;color:#000}
+  .top,.btn,.btn-row,.log-actions,.copy,.no-print,.mobile-hint,.builder .fields{display:none !important}
+  section{padding:14px 0;break-inside:auto}
+  .band{background:none;border:0}
+  .hero{padding:0 0 10px;text-align:left}
+  .hero h1{font-size:24pt;margin:0 0 8px}
+  .hero .lead{margin:0 0 8px;font-size:11pt}
+  .specs{justify-content:flex-start;margin:6px 0 0}
+  .step,.card,.honest div,.need div,.q,.builder{break-inside:avoid;border-color:#bbb}
+  .table-scroll{overflow:visible;border:0}
+  .log-table{min-width:0}
+  .log-sheet{break-before:page}
+  .log-preview{border:0;padding:0;background:none}
+  .log-preview summary{display:none}
+  .log-table td{height:27px;padding:3px 6px}
+  .log-table th{padding:4px 6px;font-size:9pt}
+  .log-sheet h3{font-size:14pt;margin:0 0 6px}
+  body.print-log-only main > section#log{padding:0}
+  body.print-log-only .log-preview .log-sheet:first-child{break-before:auto}
+  th{background:#e8e8e8 !important;color:#000;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .cta{background:none;color:#000;border:1px solid #999;padding:16px}
+  .cta h2,.cta p{color:#000}
+  .cta .pending{color:#000;border-color:#999}
+  .print-only{display:block}
+  body.print-log-only > *:not(main){display:none !important}
+  body.print-log-only main > *:not(#log){display:none !important}
+  body.print-log-only #log .section-head,body.print-log-only #log .legend-intro{display:none}
+  body.print-log-only .log-sheet:first-of-type{break-before:auto}
+  a{color:#000;text-decoration:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="https://swishdm.com/" aria-label="SwishDM home"><img src="assets/swishdm-logo.png" alt="SwishDM" width="478" height="116"></a>
+    <span class="top-tag">Free worksheet</span>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Buyer comparison worksheet</p>
+    <h1>What AI tells your buyers when they compare you with <span class="accent">a competitor</span></h1>
+    <p class="lead">Pick one real competitor. Ask ChatGPT, Gemini and Perplexity the questions your customers ask before they buy, in both brand orders, over a few fresh runs. Log every answer and every page it cites. Then read what it says each brand is good and bad at, and decide which pages to fix.</p>
+    <div class="btn-row">
+      <a class="btn btn-blue" href="#steps">Start the check</a>
+      <a class="btn btn-ghost" href="#log">Get the evidence log</a>
+    </div>
+    <ul class="specs" aria-label="The check at a glance">
+      <li>1 competitor</li><li>3 buyer questions</li><li>Both brand orders</li><li>3 fresh runs per order</li><li>3 assistants</li>
+    </ul>
+  </div>
+</section>
+
+<section class="band" id="need">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Before you start</p>
+      <h2>What you need</h2>
+      <p>One assistant takes 18 answers: three questions, two brand orders, three runs each. Do one assistant in a sitting, then repeat on the other two.</p>
+    </div>
+    <div class="need">
+      <div><b>A fair competitor</b><span>A brand your customers genuinely weigh against you for the same purchase.</span></div>
+      <div><b>Three buyer questions</b><span>From the bank below, or from your sales calls, support tickets and reviews.</span></div>
+      <div><b>A clean browser</b><span>Signed out, or a temporary chat with memory off. A private window helps.</span></div>
+      <div><b>The evidence log</b><span>Printed, or the CSV opened in Google Sheets or Excel.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="steps">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">How to run it</p>
+      <h2>Six steps</h2>
+    </div>
+    <ol class="steps">
+      <li class="step"><div class="num">01</div><div>
+        <h3>Choose the pair</h3>
+        <p>Your brand is <b>A</b>. The competitor is <b>B</b>. Pick a brand that sells to the same buyer, for the same use, at a similar price. The best choice is the one you hear about on sales calls or see in your reviews ("I almost bought B").</p>
+        <p>Skip the category giant unless your customers really compare you with it. A mismatched pair gives you answers about price tier and little else.</p>
+      </div></li>
+      <li class="step"><div class="num">02</div><div>
+        <h3>Pick three buyer questions</h3>
+        <p>Use the question bank below. Fill in the bracketed parts with your real use case, such as the skin type, the room, the activity or the country. Write them the way a customer would type them.</p>
+        <p>Then freeze the wording. Every run uses the exact same text, so differences in the answers come from the assistant and the brand order.</p>
+        <p class="tip">Leave yourself out of it. Never say you own either brand, and avoid loaded words such as "premium A or cheap B".</p>
+      </div></li>
+      <li class="step"><div class="num">03</div><div>
+        <h3>Set up a clean session</h3>
+        <ul>
+          <li><b>ChatGPT:</b> sign out, or use a temporary chat so saved memory and past chats stay out of the answer.</li>
+          <li><b>Gemini:</b> use a new chat each time. If you are signed in, switch off personalisation or past-chat features where the settings offer them.</li>
+          <li><b>Perplexity:</b> start a new thread each time. It shows its sources by default.</li>
+        </ul>
+        <p>Record in the log whether you were signed in, whether web search ran, and the country you asked from. Answers can change with each of these.</p>
+        <p class="tip">Optional: Google AI Mode and Microsoft Copilot are worth adding once the first three are done. Use the same questions and add rows to the log.</p>
+      </div></li>
+      <li class="step"><div class="num">04</div><div>
+        <h3>Ask in both orders, three fresh runs each</h3>
+        <p>Ask each question with your brand named first ("A first"), then with the competitor named first ("B first"). Do three runs of each, every run in a brand new chat. That is 18 answers per assistant.</p>
+        <p>Flipping the order checks for a simple bias towards whichever brand appears first. Fresh chats stop one answer from shaping the next.</p>
+      </div></li>
+      <li class="step"><div class="num">05</div><div>
+        <h3>Log every answer</h3>
+        <p>For each run, record the date and time, the verdict, the words the assistant used about each brand, and every page it cited. Copy the URLs exactly. Save the full answer too (a screenshot or pasted text) so you can check the log later.</p>
+        <p>Verdict options: <b>A favoured</b>, <b>B favoured</b>, <b>mixed</b> (depends on the buyer, or no clear pick), <b>neither</b> (recommends a third brand or nothing), <b>invalid</b> (refused, confused the brand, answered a different question, errored).</p>
+      </div></li>
+      <li class="step"><div class="num">06</div><div>
+        <h3>Read it, then pick the pages to fix</h3>
+        <p>Count the verdicts, collect the repeated words, and sort the cited pages by who owns them. The two guides further down cover how to read the results honestly and how to turn them into a short fix list.</p>
+      </div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band" id="questions">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Question bank</p>
+      <h2>Ready buyer questions, by ecommerce category</h2>
+      <p>Type both brand names and choose your category. Every question fills in both orders, ready to copy. Edit the parts in brackets before your first run.</p>
+    </div>
+    <div class="builder">
+      <div class="fields">
+        <div><label for="brandA">Your brand (A)</label><input id="brandA" autocomplete="off" placeholder="e.g. your store name"></div>
+        <div><label for="brandB">Competitor (B)</label><input id="brandB" autocomplete="off" placeholder="e.g. the brand you lose sales to"></div>
+        <div class="cat"><label for="category">Category</label><select id="category"></select></div>
+      </div>
+      <div id="qbank" aria-live="polite"></div>
+      <p class="tip no-print">Optional open question, run once per assistant: <span id="openq">"What are the best [product type] brands for [use case] in [the US / Canada]?"</span> Note which brands appear without being named.</p>
+    </div>
+  </div>
+</section>
+
+<section id="log">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Evidence log</p>
+      <h2>Log every run, keep every answer</h2>
+      <p>Print the log below (one page per assistant), or use the spreadsheet version. The CSV already has a row for all 54 runs: three assistants, three questions, two orders, three runs.</p>
+    </div>
+    <div class="log-actions">
+      <a class="btn btn-blue" href="buyer-comparison-evidence-log.csv" download>Download the CSV</a>
+      <button class="btn btn-ghost" type="button" id="copyCsv">Copy CSV for Google Sheets</button>
+      <button class="btn btn-ghost" type="button" id="printLog">Print the log</button>
+      <button class="btn btn-ghost" type="button" id="printAll">Print the whole worksheet</button>
+    </div>
+    <p class="csv-note legend-intro" id="csvStatus">To paste into Google Sheets: copy, open a blank sheet, click cell A1 and paste. Use Data, then Split text to columns, if it lands in one column.</p>
+    <ul class="legend legend-intro" aria-label="Verdict options">
+      <li><b>A</b> = A favoured</li><li><b>B</b> = B favoured</li><li><b>M</b> = mixed</li><li><b>N</b> = neither</li><li><b>X</b> = invalid (write why)</li>
+    </ul>
+    <details class="log-preview" id="logPreview">
+      <summary>Show the printable log (one sheet per assistant)</summary>
+      <p class="mobile-hint">Swipe sideways to see every column.</p>
+      <div id="logSheets"></div>
+    </details>
+
+    <div class="log-sheet">
+      <h3>Tally <span>Fill in after each assistant. Write results as counts with the total, for example "_ of 18".</span></h3>
+      <div class="table-scroll">
+        <table class="log-table tally">
+          <thead><tr><th>Assistant</th><th>Question</th><th>A favoured</th><th>B favoured</th><th>Mixed</th><th>Neither</th><th>Invalid</th><th>Valid total</th><th>Changed with order?</th></tr></thead>
+          <tbody id="tallyBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="reading">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Reading the results</p>
+      <h2>Three things to pull from every answer</h2>
+    </div>
+    <div class="cols">
+      <div class="card">
+        <h3>1. The verdict</h3>
+        <p>Which brand did it lean towards, if any? Count every valid answer, including mixed and neither. Then compare the A first and B first runs for the same question.</p>
+      </div>
+      <div class="card">
+        <h3>2. The words</h3>
+        <p>Copy the exact phrases used about each brand: what it says A and B are good at, what it warns about, who it says each one suits. Phrases that come back across runs and assistants are the ones buyers are most likely to read.</p>
+      </div>
+      <div class="card">
+        <h3>3. The pages behind it</h3>
+        <p>For every cited URL, note who owns the page and its date if one is visible:</p>
+        <ul class="owner-list"><li>Your site</li><li>Competitor's site</li><li>Review site or listicle</li><li>Reddit, forum or YouTube</li><li>Retailer or marketplace</li><li>Press</li></ul>
+      </div>
+      <div class="card">
+        <h3>Look for</h3>
+        <ul>
+          <li>Facts about you that are wrong or out of date.</li>
+          <li>Strengths of yours that never come up.</li>
+          <li>One page cited again and again.</li>
+          <li>Old reviews or threads still shaping the answer.</li>
+          <li>Your own pages missing from the citations.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-head" style="margin-top:54px">
+      <p class="eyebrow">Read it honestly</p>
+      <h2>What this sample can and cannot tell you</h2>
+    </div>
+    <div class="honest">
+      <div><b>It is a small sample</b><p>Eighteen answers per assistant is enough to spot patterns worth checking. Always write results as a count with its total ("_ of 18"), never as a percentage on its own.</p></div>
+      <div><b>Answers vary</b><p>The same question can get a different answer on another run, another day, another account or after a model update. A change next month can happen with nothing changed on your side.</p></div>
+      <div><b>Order can matter</b><p>If one brand only wins when it is named first, record the result as order sensitive and treat it with caution.</p></div>
+      <div><b>Keep every run</b><p>Mixed and neither are results. Count invalid runs separately with the reason. Rerun only to replace an invalid run, and note that you did.</p></div>
+      <div><b>Citations are partial</b><p>Cited pages show what the assistant pointed to in that answer. They may leave out other material it drew on.</p></div>
+      <div><b>It measures answers</b><p>This shows what assistants said in your sample. Rankings, traffic and sales need their own measurement. If your brand comes out well, that is your result too.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="fix">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">From log to action</p>
+      <h2>Which pages to fix first</h2>
+      <p>Start with the pages that show up most in your log. For each pattern below, check the first thing in the right column before you change anything.</p>
+    </div>
+    <div class="table-scroll">
+      <table class="fix-table">
+        <thead><tr><th>If you see this</th><th>Check this first</th></tr></thead>
+        <tbody>
+          <tr><td>A wrong or outdated fact about you, with a cited page</td><td>Open the cited page. If it is yours, update it. If it belongs to someone else, contact the publisher with the current facts and ask for an update.</td></tr>
+          <tr><td>A strength of yours that never comes up</td><td>Check whether your product and category pages state it in plain text: materials, ingredients, sizing, warranty, returns, shipping to the US and Canada.</td></tr>
+          <tr><td>The competitor's own comparison or "vs" page is cited</td><td>Read what it says about you. Decide whether you need a fair comparison page of your own, and where independent coverage could carry the same facts.</td></tr>
+          <tr><td>Your reviews and ratings never come up</td><td>Check whether review text appears on the page as readable text, or only inside a widget that loads after the page.</td></tr>
+          <tr><td>The same review site, listicle or thread keeps appearing</td><td>That page is shaping the answer. Check its date, what it says about each brand, and whether you are in it at all.</td></tr>
+          <tr><td>A weakness that is true</td><td>Log it for the product or customer team. Your pages can explain the trade-off honestly and say who the product suits.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="log-sheet" style="margin-top:36px">
+      <h3>Your fix list <span>Three pages, one action each.</span></h3>
+      <div class="table-scroll">
+        <table class="log-table">
+          <thead><tr><th>Page URL</th><th>Who owns it</th><th>What it says that matters</th><th>Action</th><th>Owner</th><th>By when</th></tr></thead>
+          <tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="help">
+  <div class="wrap">
+    <div class="cta">
+      <div>
+        <p class="eyebrow">Want us to run it for you?</p>
+        <h2>We run this comparison for ecommerce brands</h2>
+        <p>SwishDM runs the same check with more questions and more assistants, keeps every answer, traces the cited pages and walks you through what to fix first. If you have filled in this log, bring it along and we will start from there.</p>
+      </div>
+      <div>
+        <!-- BOOKING LINK PENDING: replace this block with the confirmed SwishDM booking link before publishing. -->
+        <span class="pending" data-pending="booking-url"><b>Booking link pending</b>The booking button goes here once SwishDM confirms the link.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/swishdm-logo.png" alt="SwishDM" width="478" height="116">
+    <span>Buyer comparison worksheet, version 1, October 2026. <a href="https://swishdm.com/">swishdm.com</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var U = "Universal questions";
+  var BANK = {
+    "Apparel and footwear": [
+      "For [body type / foot shape], which fits truer to size: {A} or {B}?",
+      "How does the quality of {A} and {B} hold up after a year of regular wear?",
+      "I need [item] for [occasion / climate]. Would you pick {A} or {B}?",
+      "Which makes its products more responsibly, {A} or {B}?"
+    ],
+    "Beauty and skincare": [
+      "I have [skin type / concern]. Should I use {A} or {B}?",
+      "Comparing the ingredient lists of {A} and {B}, what should I watch out for?",
+      "Which do reviewers rate higher for [concern], {A} or {B}?",
+      "Which is better value per use, {A} or {B}?"
+    ],
+    "Supplements and wellness": [
+      "For [goal], which is the higher-quality choice, {A} or {B}? How can I tell?",
+      "What third-party testing evidence exists for {A} and {B}?",
+      "What side effects or complaints come up for {A} and {B}?",
+      "Which subscription is easier to manage or cancel, {A} or {B}?"
+    ],
+    "Home and furniture": [
+      "For a home with [kids / pets], which is more durable, {A} or {B}?",
+      "How do delivery, assembly and returns compare between {A} and {B}?",
+      "Which gives better quality for the price, {A} or {B}?",
+      "For a [small apartment / specific room], would you recommend {A} or {B}?"
+    ],
+    "Kitchen and cookware": [
+      "For [cooking task], which performs better, {A} or {B}?",
+      "How do {A} and {B} hold up after years of daily use?",
+      "Is the price difference between {A} and {B} worth it?",
+      "Which is easier to clean and look after, {A} or {B}?"
+    ],
+    "Outdoor and sporting goods": [
+      "For [activity and conditions], should I buy {A} or {B}?",
+      "Which has the better warranty and repair support, {A} or {B}?",
+      "What do experienced [hikers / riders / anglers] say about {A} and {B}?",
+      "For a beginner, which is the better buy, {A} or {B}?"
+    ],
+    "Pet": [
+      "For a [breed / age] with [issue], is {A} or {B} the better choice?",
+      "Which has better ingredients or materials, {A} or {B}?",
+      "What do vets and owners say about {A} and {B}?",
+      "Which is better value over a year, {A} or {B}?"
+    ],
+    "Consumer electronics and gadgets": [
+      "For [use case], which is better, {A} or {B}?",
+      "Which is more reliable over time, {A} or {B}, and what problems come up?",
+      "How does customer support compare between {A} and {B}?",
+      "Is the price difference between {A} and {B} worth paying?"
+    ],
+    "Baby and kids": [
+      "For a [age] child, which is safer, {A} or {B}? Which safety certifications do they have?",
+      "What do parents say about {A} and {B} after a few months of use?",
+      "Which is easier to use day to day, {A} or {B}?",
+      "Which lasts longer or resells better, {A} or {B}?"
+    ],
+    "Food and beverage": [
+      "For [use / occasion], which do reviewers say tastes better, {A} or {B}?",
+      "Which has better ingredients or nutrition, {A} or {B}?",
+      "Which subscription is better value, {A} or {B}?",
+      "How do ordering and shipping to [the US / Canada] compare for {A} and {B}?"
+    ]
+  };
+  var UNIVERSAL = [
+    "I'm deciding between {A} and {B} for [use case]. Which one should I buy, and why?",
+    "What do customers complain about most with {A} and with {B}?",
+    "Between {A} and {B}, which is better value for the money?",
+    "Who is {A} best for, and who is {B} best for?",
+    "How do returns, warranty and shipping to [the US / Canada] compare between {A} and {B}?"
+  ];
+
+  var $ = function(id){ return document.getElementById(id); };
+  var sel = $("category");
+  Object.keys(BANK).forEach(function(k){ var o=document.createElement("option"); o.value=k; o.textContent=k; sel.appendChild(o); });
+
+  function esc(s){ return s.replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+  function names(){
+    return { a: ($("brandA").value || "").trim() || "[your brand]", b: ($("brandB").value || "").trim() || "[competitor]" };
+  }
+  // A first = your brand in the first slot; B first = swap the two names, wording unchanged.
+  function fill(t, first, second){ return t.split("{A}").join("\u0000").split("{B}").join(second).split("\u0000").join(first); }
+  function html(t){ return esc(t).replace(/\[[^\]]+\]/g, function(m){ return '<span class="placeholder">'+m+'</span>'; }); }
+
+  function row(tag, text){
+    return '<div class="q-row"><span class="q-tag">'+tag+'</span><span class="q-text">'+html(text)+'</span>'+
+           '<button class="copy" type="button" data-text="'+esc(text)+'">Copy</button></div>';
+  }
+  function block(title, note, list){
+    var n = names(), out = '<div class="qgroup"><h3>'+esc(title)+' <small>'+note+'</small></h3>';
+    list.forEach(function(t){
+      out += '<div class="q">'+row("A first", fill(t, n.a, n.b))+row("B first", fill(t, n.b, n.a))+'</div>';
+    });
+    return out + '</div>';
+  }
+  function render(){
+    $("qbank").innerHTML = block(sel.value, "category questions", BANK[sel.value]) + block(U, "work for any store", UNIVERSAL);
+  }
+  ["brandA","brandB"].forEach(function(id){ $(id).addEventListener("input", render); });
+  sel.addEventListener("change", render);
+  render();
+
+  function copyText(text, done, fail){
+    if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).then(done, function(){ legacy(text) ? done() : fail(); }); }
+    else { legacy(text) ? done() : fail(); }
+  }
+  function legacy(text){
+    var ta=document.createElement("textarea"); ta.value=text; ta.setAttribute("readonly",""); ta.style.position="fixed"; ta.style.opacity="0";
+    document.body.appendChild(ta); ta.select(); var ok=false; try{ ok=document.execCommand("copy"); }catch(e){} document.body.removeChild(ta); return ok;
+  }
+  $("qbank").addEventListener("click", function(e){
+    var b = e.target.closest(".copy"); if(!b) return;
+    copyText(b.getAttribute("data-text"), function(){ b.textContent="Copied"; b.classList.add("done"); setTimeout(function(){ b.textContent="Copy"; b.classList.remove("done"); }, 1600); },
+             function(){ b.textContent="Select and copy"; });
+  });
+
+  // Printable log: one sheet per assistant, 3 questions x 2 orders x 3 runs.
+  var ASSISTANTS = ["ChatGPT","Gemini","Perplexity"];
+  var sheets = "";
+  ASSISTANTS.forEach(function(a){
+    sheets += '<div class="log-sheet"><h3>'+a+' <span>Date: ________ &nbsp; Signed&nbsp;in:&nbsp;Y&nbsp;/&nbsp;N &nbsp; Web&nbsp;search&nbsp;on:&nbsp;Y&nbsp;/&nbsp;N &nbsp; Country: ________ &nbsp; Verdict key: A or B favoured, M mixed, N neither, X invalid</span></h3>'+
+      '<div class="table-scroll"><table class="log-table"><thead><tr><th>Q</th><th>Order</th><th>Run</th><th>Verdict</th><th>Words about A</th><th>Words about B</th><th>Pages cited (URL and owner)</th><th>Notes</th></tr></thead><tbody>';
+    [1,2,3].forEach(function(q){ ["A first","B first"].forEach(function(o){ [1,2,3].forEach(function(r){
+      sheets += '<tr><td class="fixed">Q'+q+'</td><td class="fixed">'+o+'</td><td class="fixed">'+r+'</td>'+
+        '<td><span class="tick">A</span><span class="tick">B</span><span class="tick">M</span><span class="tick">N</span><span class="tick">X</span></td><td></td><td></td><td></td><td></td></tr>';
+    }); }); });
+    sheets += '</tbody></table></div></div>';
+  });
+  $("logSheets").innerHTML = sheets;
+  var tally = "";
+  ASSISTANTS.forEach(function(a){ [1,2,3].forEach(function(q){ tally += '<tr><td class="fixed">'+a+'</td><td class="fixed">Q'+q+'</td><td></td><td></td><td></td><td></td><td></td><td>_ of 6</td><td></td></tr>'; }); });
+  $("tallyBody").innerHTML = tally;
+
+  $("copyCsv").addEventListener("click", function(){
+    var btn=this, status=$("csvStatus");
+    fetch("buyer-comparison-evidence-log.csv").then(function(r){ if(!r.ok) throw 0; return r.text(); }).then(function(t){
+      copyText(t, function(){ btn.textContent="CSV copied"; status.textContent="Copied. Open a blank Google Sheet, click cell A1 and paste. Use Data, then Split text to columns, if it lands in one column."; },
+               function(){ status.textContent="Your browser blocked copying. Use Download the CSV instead."; });
+    }).catch(function(){ status.textContent="Copy is unavailable here. Use Download the CSV instead."; });
+  });
+  window.addEventListener("beforeprint", function(){ $("logPreview").open = true; });
+  $("printLog").addEventListener("click", function(){ $("logPreview").open = true; document.body.classList.add("print-log-only"); window.print(); });
+  $("printAll").addEventListener("click", function(){ $("logPreview").open = true; document.body.classList.remove("print-log-only"); window.print(); });
+  window.addEventListener("afterprint", function(){ document.body.classList.remove("print-log-only"); });
+})();
+</script>
+</body>
+</html>
