@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>What AI tells your buyers | SwishDM</title>
+<meta name="description" content="See what ChatGPT and Gemini tell buyers who compare your store with your competitor: who gets picked, what they get wrong about you, and the pages they lean on.">
+<meta property="og:title" content="What AI tells your buyers | SwishDM">
+<meta property="og:description" content="Your brand vs the competitor buyers weigh you against, asked 36 times across ChatGPT and Gemini, with every fact checked against your own store.">
+<meta property="og:site_name" content="SwishDM">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://madebyswishdm.com/ai-buyer-scan/">
+<meta property="og:image" content="https://madebyswishdm.com/ai-buyer-scan/assets/ai-buyer-scan-cover.jpg">
+<meta property="og:image:width" content="1264">
+<meta property="og:image:height" content="848">
+<meta property="og:image:alt" content="What AI tells your buyers: your brand vs your competitor, 36 answers from ChatGPT and Gemini">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://madebyswishdm.com/ai-buyer-scan/">
+<link rel="icon" type="image/png" href="assets/swishdm-favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Oswald:wght@400;500;600;700&display=swap">
+<script>
+/* Requests stay closed until a receiver exists and Jonathan approves the launch.
+   requestsOpen:false keeps the form disabled and sends nothing. */
+window.SCAN_CONFIG = { requestsOpen: false, endpoint: "" };
+</script>
+<style>
+:root{
+  /* SwishDM brand guide 2.4, verbatim */
+  --swish-orange:#FC5B06; --swish-blue:#0668FC; --swish-white:#FFFFFF; --swish-black:#000000;
+  --swish-blue-1:#010D68; --swish-blue-2:#0A5FDF; --swish-blue-3:#AFC4FA; --swish-blue-4:#EAF0FF;
+  --swish-grey-1:#3C312C; --swish-grey-2:#524C49; --swish-grey-3:#D2C7C2; --swish-grey-4:#EEEBE9;
+  --swish-orange-1:#CE4700; --swish-orange-2:#EC5200; --swish-orange-3:#F2EFE4; --swish-orange-4:#FAF7F0;
+  --head:"Oswald",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; --body:"Lato",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --shadow-2:0 4px 10px rgba(0,0,0,.15); --r-card:30px; --r-row:24px; --r-section:40px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--swish-white);color:var(--swish-grey-1);font:400 1rem/1.55 var(--body);-webkit-text-size-adjust:100%}
+img{max-width:100%;height:auto}
+a{color:var(--swish-blue-2)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--head);color:var(--swish-blue-1);line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(2.3rem,6vw,3.75rem);font-weight:500;line-height:1.05}
+h2{font-size:clamp(2rem,4.6vw,2.8rem);font-weight:400}
+h3{font-size:1.45rem;font-weight:500}
+p{margin:0 0 1em}
+.eyebrow{display:flex;align-items:center;gap:10px;font:700 .85rem/1.3 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--swish-blue-1);margin:0 0 14px}
+.eyebrow::before{content:"";width:28px;height:6px;border-radius:999px;background:var(--swish-orange);flex:none}
+.hl{background:var(--swish-orange);color:var(--swish-white);padding:0 .14em;border-radius:8px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hero h1{line-height:1.27}
+
+.top{border-bottom:1px solid var(--swish-grey-3)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:32px;padding-top:30px;padding-bottom:30px}
+.top a{flex-shrink:0}
+.top img{display:block;height:32px;width:auto}
+.top-tag{font:700 .75rem/1.3 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--swish-blue-1);border:1px solid var(--swish-grey-3);border-radius:999px;padding:6px 14px;white-space:nowrap}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:12px 28px;font:700 1.05rem/1 var(--body);border-radius:999px;text-decoration:none;border:0;cursor:pointer;white-space:nowrap;box-shadow:var(--shadow-2)}
+.btn-orange{background:var(--swish-orange);color:var(--swish-white)}.btn-orange:hover{background:var(--swish-orange-1)}
+.btn-link{color:var(--swish-blue-1);font-weight:700;text-decoration:none}.btn-link::after{content:" \2192"}.btn-link:hover{text-decoration:underline;text-underline-offset:3px}
+.btn-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
+.btn[disabled]{background:var(--swish-grey-3);color:var(--swish-grey-1);box-shadow:none;cursor:not-allowed}
+
+.hero{padding:64px 0 56px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero .lead{font-size:1.25rem;max-width:620px;margin-bottom:28px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 0;padding:0;list-style:none}
+.chips li{background:var(--swish-orange-4);border:1px solid var(--swish-grey-3);border-radius:999px;padding:7px 15px;font-size:.875rem;color:var(--swish-blue-1);font-weight:700}
+
+/* hero visual: a small, honest preview of a real answer pattern from the example */
+.peek{background:var(--swish-blue-1);border-radius:var(--r-section);padding:28px;color:var(--swish-white);box-shadow:var(--shadow-2)}
+.peek h3{color:var(--swish-white);font-size:1.15rem;margin-bottom:14px}
+.peek .row{background:var(--swish-white);color:var(--swish-grey-1);border-radius:var(--r-row);padding:14px 16px;margin-top:10px;font-size:.95rem}
+.peek .row b{display:block;font:700 .72rem/1.3 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--swish-blue-2);margin-bottom:4px}
+.peek .row.warn b{color:var(--swish-orange-1)}
+.peek small{display:block;margin-top:14px;color:var(--swish-blue-4)}
+
+section{padding:64px 0}
+.band{background:var(--swish-orange-4);border-top:1px solid var(--swish-grey-3);border-bottom:1px solid var(--swish-grey-3)}
+.section-head{max-width:760px;margin-bottom:34px}
+.section-head p{font-size:1.2rem}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{background:var(--swish-white);border:1px solid var(--swish-grey-3);border-radius:var(--r-card);padding:28px}
+.card .ico{width:48px;height:48px;border-radius:999px;background:var(--swish-blue-4);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.card .ico svg{width:24px;height:24px;stroke:var(--swish-blue);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card p{margin:0;color:var(--swish-grey-2)}
+
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.steps li{background:var(--swish-white);border:1px solid var(--swish-grey-3);border-radius:var(--r-card);padding:28px}
+.steps .num{font-family:var(--head);font-weight:700;font-size:2.4rem;color:var(--swish-orange);line-height:1;margin-bottom:10px}
+.steps p{margin:0;color:var(--swish-grey-2)}
+
+.example{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;background:var(--swish-white);border:1px solid var(--swish-grey-3);border-radius:var(--r-section);padding:36px}
+.example ul{margin:0 0 20px;padding-left:20px}.example li{margin-bottom:8px}
+.stat{font-family:var(--head);font-size:3rem;color:var(--swish-blue-1);line-height:1}
+.stat-row{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.stat-box{background:var(--swish-orange-4);border-radius:var(--r-row);padding:18px}
+.stat-box span{display:block;font-size:.9rem;color:var(--swish-grey-2);margin-top:6px}
+
+form{background:var(--swish-white);border:1px solid var(--swish-grey-3);border-radius:var(--r-section);padding:36px;box-shadow:var(--shadow-2)}
+fieldset{border:0;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+fieldset[disabled]{opacity:.6}
+label{display:flex;flex-direction:column;gap:6px;font-weight:700;color:var(--swish-blue-1);font-size:.95rem}
+label small{font-weight:400;color:var(--swish-grey-2)}
+input[type=text],input[type=url],input[type=email]{font:400 1rem/1.4 var(--body);padding:12px 16px;border:1px solid var(--swish-grey-3);border-radius:999px;background:var(--swish-orange-4);color:var(--swish-grey-1)}
+input:focus{outline:3px solid var(--swish-blue-3);outline-offset:1px}
+.full{grid-column:1/-1}
+.consent{flex-direction:row;align-items:flex-start;gap:10px;font-weight:400;color:var(--swish-grey-1)}
+.consent input{margin-top:4px}
+.closed{grid-column:1/-1;background:var(--swish-blue-4);color:var(--swish-blue-1);border-radius:var(--r-row);padding:14px 18px;font-weight:700;margin-bottom:18px}
+.status{margin-top:14px;font-weight:700;color:var(--swish-blue-1)}
+.fine{font-size:.9rem;color:var(--swish-grey-2);margin-top:22px}
+
+.proof{background:var(--swish-blue-1);color:var(--swish-white);border-radius:var(--r-section);padding:36px;display:flex;gap:28px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.proof p{margin:0;font-size:1.2rem;max-width:640px}.proof a{color:var(--swish-white);font-weight:700}
+
+.foot{border-top:1px solid var(--swish-grey-3)}
+.foot .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:32px;padding-bottom:40px;color:var(--swish-grey-2);font-size:.9rem;flex-wrap:wrap}
+.foot img{height:26px;width:auto}
+
+@media (max-width:480px){.top .wrap{gap:16px}.top-tag{white-space:normal;text-align:center;font-size:.7rem}}
+@media (max-width:860px){.hero-grid,.example{grid-template-columns:1fr}.cards,.steps{grid-template-columns:1fr}fieldset{grid-template-columns:1fr}.hero{padding-top:40px}}
+</style>
+<meta name="robots" content="noindex,nofollow"><link rel="canonical" href="https://madebyswishdm.com/ai-buyer-scan/"></head>
+<body><a href="/board/#resources" style="display:block;padding:14px 20px;background:#EAF0FF;color:#010D68;font:700 15px Lato,Arial,sans-serif;text-decoration:none">← Back to your panel</a>
+<header class="top"><div class="wrap">
+  <a href="https://swishdm.com/"><img src="assets/swishdm-logo@2x.png" alt="SwishDM" width="132" height="32"></a>
+  <span class="top-tag">Free for ecommerce brands</span>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <p class="eyebrow">What AI tells your buyers</p>
+    <h1>See what ChatGPT and Gemini tell buyers who compare you with <span class="hl">your competitor</span></h1>
+    <p class="lead">Tell us your store and the competitor your customers weigh you against. We ask both assistants the questions buyers ask, 36 times, and send you a report about your own brand.</p>
+    <div class="btn-row">
+      <a class="btn btn-orange" href="#request">Request your report</a>
+      <a class="btn-link" href="example/breeo-vs-solo-stove/">See a real example</a>
+    </div>
+    <ul class="chips">
+      <li>36 answers</li><li>ChatGPT and Gemini</li><li>Facts checked against your store</li><li>The pages AI leans on</li><li>Free</li>
+    </ul>
+  </div>
+  <aside class="peek" aria-label="What a report shows">
+    <h3>From the Breeo vs Solo Stove example</h3>
+    <div class="row"><b>Who gets picked</b>Better value for money: ChatGPT picked Solo Stove in 6 of 6 answers, Breeo in 0.</div>
+    <div class="row warn"><b>What it gets wrong</b>16 of 36 answers describe a built-in sear plate rim, which Breeo's store lists among discontinued models.</div>
+    <div class="row"><b>Pages it leans on</b>One Popular Mechanics comparison was cited in 13 of 36 answers.</div>
+    <small>36 answers from ChatGPT and Gemini, 15 October 2026. Public answers and public pages only.</small>
+  </aside>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <div class="section-head">
+    <p class="eyebrow">What's in the report</p>
+    <h2>Your brand, your competitor, the words buyers actually read</h2>
+    <p>You read the answers themselves, in full, with every fact about your brand checked against your store.</p>
+  </div>
+  <div class="cards">
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+      <h3>Who gets picked</h3><p>How often ChatGPT and Gemini recommend you or your competitor for each buyer question, and whether typing the brands in a different order changes the answer.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01"/></svg></div>
+      <h3>What it gets wrong about you</h3><p>Every statement about your prices, returns, warranty, shipping, sizes and products, checked word for word against your own store pages.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h12l4 4v12H4z"/><path d="M8 12h8M8 16h5"/></svg></div>
+      <h3>The pages the answers lean on</h3><p>The reviews, videos, forum threads and marketplace pages the assistants cite, how many answers use each one and how old they are.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 12l4 4 10-10"/></svg></div>
+      <h3>What to look at first</h3><p>Three suggestions taken straight from your findings: a fact to correct on a named page, an outside page to get updated, a question where your competitor wins.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="section-head">
+    <p class="eyebrow">A real example</p>
+    <h2>Breeo vs Solo Stove</h2>
+    <p>We ran the same check on two fire pit brands, using only public answers and public pages. Nothing was sent to either brand.</p>
+  </div>
+  <div class="example">
+    <div class="stat-row" id="example-stats">
+      <div class="stat-box"><div class="stat">36</div><span>answers from ChatGPT and Gemini</span></div>
+      <div class="stat-box"><div class="stat">3</div><span>buyer questions, both brand orders</span></div>
+    </div>
+    <div>
+      <ul>
+        <li>Who each assistant picks, question by question</li>
+        <li>Statements about Breeo checked against breeo.com</li>
+        <li>The outside pages the answers cite, with their dates</li>
+      </ul>
+      <a class="btn btn-orange" href="example/breeo-vs-solo-stove/">Open the example report</a>
+    </div>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <div class="section-head"><p class="eyebrow">How it works</p><h2>Three steps, nothing to install</h2></div>
+  <ol class="steps">
+    <li><div class="num">1</div><h3>Tell us the matchup</h3><p>Your store, the competitor buyers compare you with, and what they are shopping for.</p></li>
+    <li><div class="num">2</div><h3>We ask the questions</h3><p>Three buyer questions in fresh chats, with each brand typed first, three times over, on ChatGPT and Gemini. Each assistant decides for itself whether to search the web.</p></li>
+    <li><div class="num">3</div><h3>A person checks it</h3><p>Someone at SwishDM reads every report before it reaches you, then sends you the link.</p></li>
+  </ol>
+</div></section>
+
+<section id="request"><div class="wrap">
+  <div class="section-head"><p class="eyebrow">Request your report</p><h2>Your store vs your competitor</h2>
+    <p>For ecommerce brands selling into the US and Canada.</p></div>
+  <form id="scan-form" novalidate>
+    <p class="closed" id="closed-note" hidden>Requests open soon. This form is not sending anything yet.</p>
+    <fieldset id="scan-fields">
+      <label>Your brand<input type="text" name="brand" required autocomplete="organization"></label>
+      <label>Your store's website<input type="url" name="brand_url" required placeholder="https://"></label>
+      <label>The competitor buyers compare you with<input type="text" name="rival" required></label>
+      <label>Their website <small>(optional)</small><input type="url" name="rival_url" placeholder="https://"></label>
+      <label class="full">What buyers are shopping for <small>(a few words, e.g. "smokeless fire pit")</small><input type="text" name="product" required></label>
+      <label>Your name<input type="text" name="name" required autocomplete="name"></label>
+      <label>Work email<input type="email" name="email" required autocomplete="email"></label>
+      <label class="full">Your LinkedIn profile <small>(optional)</small><input type="url" name="linkedin_url" placeholder="https://www.linkedin.com/in/"></label>
+      <label class="consent full"><input type="checkbox" name="consent" required> I work at this brand, and I'm happy for SwishDM to email me the report and follow up about it.</label>
+      <div class="full"><button class="btn btn-orange" type="submit" id="scan-submit">Request my report</button><p class="status" id="scan-status" role="status"></p></div>
+    </fieldset>
+    <p class="fine">One report per brand. The answers come from public AI assistants and change from run to run, so the report shows the date, the run count and every answer in full. We can't promise you'll be named in an AI answer.</p>
+  </form>
+  <p class="fine">Want to talk first? <a href="https://calendar.app.google/bhAE6hVEbKGbs4bC7" target="_blank" rel="noopener noreferrer">Book an SEO Strategy Meeting with Jonathan</a>.</p>
+</div></section>
+
+<section><div class="wrap">
+  <div class="proof">
+    <p>SwishDM runs SEO for ecommerce brands. One of them sells home backup batteries and portable solar kit direct to shoppers in five countries. In 2023 its stores took $16.3M in sales from organic search, for $266k spent on SEO.</p>
+  </div>
+</div></section>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <img src="assets/swishdm-logo.png" alt="SwishDM" width="107" height="26">
+  <span>SEO, AI search and digital PR for ecommerce brands.</span>
+</div></footer>
+
+<script>
+(function () {
+  var cfg = window.SCAN_CONFIG || {};
+  var form = document.getElementById("scan-form");
+  var fields = document.getElementById("scan-fields");
+  var status = document.getElementById("scan-status");
+  var open = cfg.requestsOpen === true && typeof cfg.endpoint === "string" && cfg.endpoint.indexOf("https://") === 0;
+  if (!open) {
+    fields.disabled = true;
+    document.getElementById("closed-note").hidden = false;
+  }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!open) { status.textContent = "Requests are not open yet."; return; }
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    var data = {};
+    new FormData(form).forEach(function (v, k) { data[k] = v; });
+    data.consent = form.consent.checked;
+    data.source = "form";
+    status.textContent = "Sending...";
+    fetch(cfg.endpoint, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
+      .then(function (r) {
+        status.textContent = r.ok ? "Thanks. We'll email you once a person has checked your report."
+                                  : "That didn't go through. Please try again in a minute.";
+        if (r.ok) fields.disabled = true;
+      })
+      .catch(function () { status.textContent = "That didn't go through. Please try again in a minute."; });
+  });
+})();
+</script>
+</body>
+</html>
