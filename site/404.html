@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://swishdm.com/">
+<title>SwishDM</title>
+<script>
+  // Unknown paths go to SwishDM. A stray path under /board/ goes back to the board,
+  // keeping its board link (?k=) and sign-in link (#ml=).
+  (function (l) {
+    if (/^\/board(\/|$)/i.test(l.pathname)) l.replace('/board/' + l.search + l.hash);
+    else l.replace('https://swishdm.com/');
+  })(window.location);
+</script>
+<noscript><meta http-equiv="refresh" content="0;url=https://swishdm.com/"></noscript>
+</head>
+<body><p><a href="https://swishdm.com/">Visit SwishDM</a></p></body>
+</html>
