@@ -47,7 +47,7 @@ export function buildReportText(data, page, records, done, extra) {
     `Research: ${data.studyDate}. Page review: ${data.reviewDate}.`, `${records.length} selected answers.`,
     `Scope: ${[...new Set(records.map(r=>data.engines[r.engine]))].join(', ')}.`,
     `Shopping questions: ${[...new Set(records.map(r=>data.scenarios[r.scenario]))].join(', ')}.`, '',
-    'Pilot: fewer than 100 repeats per question. Full SwishDM studies require at least 100. Topic mentions describe this sample. Internal ranking rules remain unknown. Page coverage does not predict recommendations, clicks or sales.', '',
+    'Pilot: fewer than 100 repeats per question. Full SwishDM studies require at least 100. Topic mentions describe this sample. Internal ranking rules remain unknown.', '',
     'PAGE CAPTURE', page.capture_method, ...page.capture_limitations, '', 'ACTION LIST'];
   for (const g of actionsFor(data,page,extra)) lines.push(`[${done.has(g.id)?'x':' '}] ${g.name}`,actionInstruction(g), ...(g.optional_suggestions||[]).map(x=>`Optional: ${x}`),'');
   lines.push('PAGE EVIDENCE');

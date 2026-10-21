@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <meta name="description" content="Explore the product details that appear in AI shopping answers, check the evidence on a product page and build a practical action list.">
+  <meta name="description" content="See the product details AI shopping answers judge on in your category, and which ones your product page states in plain text.">
   <title>AI product-page check | SwishDM</title>
   <link rel="icon" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +25,7 @@
     <div class="hero-copy">
       <span class="eyebrow"><i aria-hidden="true"></i> AI product-page check</span>
       <h1 id="hero-title">Does your page answer what AI shoppers ask?</h1>
-      <p class="hero-lead">See the product details that keep coming up in AI answers, check what your page says and find the information worth adding.</p>
+      <p class="hero-lead">See the details AI answers judge products on in your category, and which ones your product page is missing.</p>
       <div class="hero-actions"><a class="button button-primary" href="#report">Explore the backpack example <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></a><a class="button button-outline" href="#request">Check your product</a></div>
       <p class="hero-foot">Real recorded answers. Source quotes you can check. Free for store owners.</p>
     </div>
@@ -52,7 +52,7 @@
     </div>
     <div id="report-content" hidden>
       <div class="report-summary"><div class="summary-copy"><span class="small-label">Page checked on 16 October 2026</span><h3 id="product-title"></h3><a id="product-link" target="_blank" rel="noopener noreferrer" class="source-link">View the product page <span aria-hidden="true">↗</span></a><p id="product-verdict"></p><div id="capture-note" class="capture-note"></div></div><div class="coverage-display"><span class="coverage-number" id="coverage-count"></span><p>product topics<br>answered clearly</p><div class="coverage-track" id="coverage-track" aria-hidden="true"></div><div id="coverage-legend" class="coverage-legend"></div><a href="#method">How we judge an answer</a></div></div>
-      <p class="scope-note">This checks information in the captured page. Topic coverage does not predict AI recommendations, clicks or sales.</p>
+      <p class="scope-note">The details AI answers keep coming back to, and whether this page states them in plain text.</p>
 
       <nav class="section-nav" aria-label="Report sections"><a href="#topics">Product topics</a><a href="#comparison">Compare pages</a><a href="#actions">Your action list <span id="action-count">0</span></a><a href="#method">Sources &amp; method</a></nav>
 
@@ -93,7 +93,7 @@
         <div class="field"><label for="rq-url">Product page URL</label><input id="rq-url" name="product_url" type="url" inputmode="url" placeholder="https://your-store.com/products/your-product" maxlength="500" required></div>
         <div class="field"><label for="rq-category">What is the product?</label><input id="rq-category" name="category" type="text" placeholder="For example: carry-on backpack" maxlength="120" required></div>
         <div class="hp" aria-hidden="true"><label for="rq-website">Leave this empty</label><input id="rq-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-        <label class="consent"><input id="rq-consent" name="consent" type="checkbox" required> <span>Email me my report. SwishDM may also send me the occasional email, and I can opt out at any time.</span></label>
+        <label class="consent"><input id="rq-consent" name="consent" type="checkbox" required> <span>Email me my report.</span></label>
         <button class="button button-primary" type="submit">Request my check</button>
       </fieldset>
       <p id="request-status" class="request-status" role="status" aria-live="polite"></p>
@@ -109,8 +109,8 @@
       <details><summary>How were the topics counted?</summary><div><p>A model read each answer and extracted the product details used in the response, with a supporting quote. Similar details were grouped into these 14 topics. A topic counts once per answer, even if it appears several times. Every quote shown here is checked against the saved answer.</p><p>A separate model rechecked 120 sampled extractions and accepted 110. This measures agreement on the sampled extractions. It gives no confidence level for the findings. Topic grouping and model judgements can still be wrong.</p><p>The filters recalculate the count and denominator from the recorded answers. Frequency tells you what appeared in this sample; it does not reveal a model's internal ranking rules or prove which details caused a recommendation.</p></div></details>
       <details><summary>How is product-page coverage judged?</summary><div><p><strong>Clear:</strong> the captured page gives a concrete answer about the topic. <strong>Partial:</strong> it mentions the topic but leaves a basic fact unclear or inconsistent. <strong>Not found:</strong> we could not find an answer in the checked capture. <strong>Check capture:</strong> incomplete evidence prevents a fair judgement.</p><p>We check the specific product version, accept convertible units and count a clear statement that a feature is absent. A page does not need every optional feature in a topic. The count is unweighted: a clearly answered topic counts once.</p><p>The page grades were independently reviewed on 17 October. The original automated rubric was too demanding in places, so this report uses the revised evidence review. Optional improvements are separate from the basic coverage judgement.</p></div></details>
       <details><summary>What can the captures tell us?</summary><div><p>Pages were fetched from Warsaw on 16 October. We read the returned HTML and product data. Osprey required a browser-rendered capture, while Cotopaxi's extracted text was incomplete. Those limits are shown alongside their findings.</p><p>These captures do not establish exactly what a search engine saw. A page may have information in another region, a linked policy or a section the extractor missed. Check the live page before changing it.</p><p>Prices, availability and airline rules change. AI answers may contain mistakes. Source excerpts are retained as evidence of what was said, with their original wording.</p></div></details>
-      <details><summary>Will these edits make AI recommend my product?</summary><div><p>We cannot promise that. Clear product information can help people understand and compare what you sell. Recommendations also depend on the question, reviews, other sources and the tool's behaviour.</p><p>Keep improving the store and its search performance, then measure AI visibility and how your product is described over time. <a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener noreferrer">Google's guidance on AI search</a> also recommends making important content available as text and makes clear that inclusion is not guaranteed.</p></div></details>
-      <details><summary>What happens to URLs and personal information?</summary><div><p>The URL box in the example only opens one of the five saved reports. It does not fetch a website or submit anything. Checklist progress stays in this browser, and downloads are created here.</p><p>If you request a check, we keep your name, email, brand, product page and product type so we can prepare your report and email it to you. If you agree, SwishDM may also send you the occasional email. We do not sell your details. Reply to any of our emails to have them deleted.</p></div></details>
+      <details><summary>Why does it matter what my page says?</summary><div><p>When AI tools compare products in a category, they judge them on the same few details again and again. If your page states those details in plain text, the tools have your own words to use when they describe and compare your product. If it leaves them out, the answer relies on reviews, retailers and other sites, or skips you in the comparison.</p><p>Nobody can promise a recommendation: reviews and other sources count too. Your product page is the part you control, so start there, then track how AI tools describe your product over time. <a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener noreferrer">Google's guidance on AI search</a> also recommends making important content available as text and makes clear that inclusion is not guaranteed.</p></div></details>
+      <details><summary>What happens to URLs and personal information?</summary><div><p>The URL box in the example only opens one of the five saved reports. It does not fetch a website or submit anything. Checklist progress stays in this browser, and downloads are created here.</p><p>If you request a check, we keep your name, email, brand, product page and product type so we can prepare your report and email it to you. We do not sell your details. Reply to any of our emails to have them deleted.</p></div></details>
     </div>
   </div></section>
 </main>
