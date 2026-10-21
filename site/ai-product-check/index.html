@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Explore the product details that appear in AI shopping answers, check the evidence on a product page and build a practical action list.">
+  <title>AI product-page check | SwishDM</title>
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.mjs"></script>
+  <script type="module" src="request.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#report">Skip to the report</a>
+<header class="site-header wrap">
+  <a href="#top" class="logo-link" aria-label="SwishDM product-page check home"><img src="assets/logo.png" width="164" height="40" alt="SwishDM"></a>
+  <nav aria-label="Main navigation"><a href="#method">How we checked</a><a class="button button-outline" href="#request">Check your product</a></nav>
+</header>
+<main id="top">
+  <section class="hero wrap" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <span class="eyebrow"><i aria-hidden="true"></i> AI product-page check</span>
+      <h1 id="hero-title">Does your page answer what AI shoppers ask?</h1>
+      <p class="hero-lead">See the product details that keep coming up in AI answers, check what your page says and find the information worth adding.</p>
+      <div class="hero-actions"><a class="button button-primary" href="#report">Explore the backpack example <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></a><a class="button button-outline" href="#request">Check your product</a></div>
+      <p class="hero-foot">Real recorded answers. Source quotes you can check. Free for store owners.</p>
+    </div>
+    <div class="hero-art" aria-label="Example of how the report connects AI answers to page information">
+      <div class="question-card"><span class="small-label">A shopper asks</span><p>“What's the best travel backpack for one-bag travel?”</p><span class="small-label">One of the questions in this study</span></div>
+      <div class="connect-line" aria-hidden="true"><svg viewBox="0 0 120 50"><path d="M12 5 C12 35 105 10 105 40 M98 32l7 9 7-9"/></svg><span>Read the details in the answers</span></div>
+      <div class="mini-report"><div class="mini-head"><span>What came up?</span><span>Web answers</span></div><div id="hero-bars" class="mini-bars"><p>Loading the recorded research…</p></div><div class="mini-foot"><span class="outline-check" aria-hidden="true">✓</span> Compare these topics with your page</div></div>
+      <span class="study-sticker">Made for<br><strong>store owners</strong></span>
+    </div>
+  </section>
+
+  <section class="intro-band" aria-label="How to use this resource"><div class="wrap intro-steps">
+    <div><span class="step-number">1</span><p><strong>Choose a product</strong><span>Open one of the five saved page checks.</span></p></div>
+    <div><span class="step-number">2</span><p><strong>Read the evidence</strong><span>See the AI answers and exact page text.</span></p></div>
+    <div><span class="step-number">3</span><p><strong>Take an action list</strong><span>Save the changes for your store team.</span></p></div>
+  </div></section>
+
+  <section id="report" class="report-section wrap" aria-labelledby="report-title">
+    <div class="section-heading"><div><span class="eyebrow">Worked example / travel backpacks</span><h2 id="report-title">Let's look at a real product page.</h2></div><p>Choose a page to see what it explains and where a shopper may still have questions.</p></div>
+    <div id="load-error" class="notice" hidden role="alert"></div>
+    <div class="product-picker">
+      <div class="field"><label for="product">Product page</label><select id="product" disabled><option>Loading saved reports…</option></select></div>
+      <details class="url-details"><summary>Have a product URL?</summary><form id="url-form" novalidate><label for="product-url">Open a saved product URL</label><div class="input-row"><input id="product-url" type="url" inputmode="url" autocomplete="url" placeholder="https://your-store.com/products/your-product" aria-describedby="url-help url-error"><button class="button button-blue" type="submit">Open report</button></div><p id="url-help" class="help">This opens one of the five saved example reports. For your own product, <a href="#request">request a check</a>.</p><p id="url-error" class="field-error" role="alert" hidden></p></form></details>
+    </div>
+    <div id="report-content" hidden>
+      <div class="report-summary"><div class="summary-copy"><span class="small-label">Page checked on 16 October 2026</span><h3 id="product-title"></h3><a id="product-link" target="_blank" rel="noopener noreferrer" class="source-link">View the product page <span aria-hidden="true">↗</span></a><p id="product-verdict"></p><div id="capture-note" class="capture-note"></div></div><div class="coverage-display"><span class="coverage-number" id="coverage-count"></span><p>product topics<br>answered clearly</p><div class="coverage-track" id="coverage-track" aria-hidden="true"></div><div id="coverage-legend" class="coverage-legend"></div><a href="#method">How we judge an answer</a></div></div>
+      <p class="scope-note">This checks information in the captured page. Topic coverage does not predict AI recommendations, clicks or sales.</p>
+
+      <nav class="section-nav" aria-label="Report sections"><a href="#topics">Product topics</a><a href="#comparison">Compare pages</a><a href="#actions">Your action list <span id="action-count">0</span></a><a href="#method">Sources &amp; method</a></nav>
+
+      <section id="topics" class="report-block" aria-labelledby="topics-title">
+        <div class="section-heading"><div><span class="eyebrow">See what comes up</span><h2 id="topics-title">The details behind the answers.</h2></div><p>Each percentage is the share of selected answers that mentions a topic. Open a row to see the evidence.</p></div>
+        <div class="filters"><div class="field"><label for="engine">AI tool</label><select id="engine"><option value="web">All web captures</option></select></div><div class="field"><label for="scenario">Shopping question</label><select id="scenario"><option value="all">All shopping questions</option></select></div><div class="field"><label for="coverage-filter">Page coverage</label><select id="coverage-filter"><option value="all">All topics</option><option value="gaps">Needs attention</option><option value="covered">Clearly answered</option></select></div></div>
+        <div class="sample-line"><p id="sample-description" aria-live="polite"></p><button id="reset-filters" class="text-button" type="button">Reset filters</button></div>
+        <div class="topic-table-header" aria-hidden="true"><span>Product topic</span><span>In selected answers</span><span>On this page</span><span></span></div>
+        <div id="topics-list"></div><p id="topics-empty" class="empty" hidden>No topics match these filters. Try all topics or reset the filters.</p>
+        <p class="help">A broad topic can include several details. “Fabric and weather protection”, for example, can cover a material, a coating or a rain cover. Each is useful context; a product does not need every feature.</p>
+      </section>
+
+      <section id="comparison" class="report-block" aria-labelledby="comparison-title">
+        <div class="section-heading"><div><span class="eyebrow">Put the pages side by side</span><h2 id="comparison-title">What does another page explain?</h2></div><p>Compare the information available on two pages. All products here are research examples with no client relationship implied.</p></div>
+        <div class="comparison-controls"><p id="comparison-primary"></p><div class="field"><label for="competitor">Compare with</label><select id="competitor"></select></div></div>
+        <div id="compare-notice" class="notice" hidden></div><div class="table-scroll" tabindex="0" role="region" aria-label="Product-page comparison"><table class="comparison-table"><caption class="sr-only">Coverage of product topics on the selected pages</caption><thead id="comparison-head"></thead><tbody id="comparison-body"></tbody></table></div>
+        <p class="help">The same topic rubric is used for every page. Different capture methods and incomplete extracts are marked. These are observations from 16 October, so the live pages may have changed.</p>
+      </section>
+
+      <section id="actions" class="report-block action-section" aria-labelledby="actions-title">
+        <div class="section-heading"><div><span class="eyebrow">Make the report useful</span><h2 id="actions-title">Take this to your store team.</h2></div><p>Start with information that needs checking or adding. Tick off work as you go, then save the list.</p></div>
+        <div class="actions-layout"><div id="action-list"></div><aside class="save-panel"><svg class="save-icon" aria-hidden="true" viewBox="0 0 48 48"><path d="M13 5h17l7 7v30H13z M29 5v9h8 M20 23h10 M20 29h10 M20 35h6"/></svg><h3>Keep your action list.</h3><p>Download a text version with source links, the page findings and your progress.</p><button id="download" class="button button-primary" type="button">Download action list</button><button id="print" class="button button-outline" type="button">Print / save as PDF</button><p id="save-state" class="help" role="status">Progress is saved in this browser.</p><button id="reset-checklist" class="text-button" type="button">Reset checklist</button></aside></div>
+        <details class="guide"><summary>How to make a useful page edit</summary><div class="guide-content"><p><strong>Write the fact a buyer needs.</strong> If you sell a 35L backpack, state the capacity and weight for that version. One familiar unit is enough; another unit can make comparison easier.</p><p><strong>Explain a limitation when it matters.</strong> If the bag does not expand or the hip belt is sold separately, say that clearly. A clear “no” still answers the question.</p><p><strong>Put the information beside the buying decision.</strong> Add the detail to a product specification, feature description or relevant FAQ. Keep it in readable text and check that the page's product data agrees.</p><p><strong>Check the facts before publishing.</strong> Confirm dimensions, prices and warranty terms with the person who owns the product information. Recheck the page after editing; AI visibility needs its own repeated measurement over time.</p></div></details>
+      </section>
+    </div>
+  </section>
+
+  <section id="request" class="request-section" aria-labelledby="request-title"><div class="wrap request-layout">
+    <div class="section-heading request-copy"><div><span class="eyebrow">Free for store owners</span><h2 id="request-title">Get this for your product.</h2></div>
+      <p>Send us one product page. We ask the AI tools the questions your shoppers ask, count the details the answers come back to and check which of them your page explains.</p>
+      <ul class="request-points"><li>The topics AI answers bring up for your kind of product</li><li>What your page says about each one, quoted word for word</li><li>An action list for your store team</li></ul>
+      <p class="help">A person checks every report before we email it to you.</p></div>
+    <form id="request-form" class="request-form" novalidate>
+      <fieldset id="request-fields">
+        <div class="field"><label for="rq-name">Your name</label><input id="rq-name" name="name" type="text" autocomplete="name" maxlength="120" required></div>
+        <div class="field"><label for="rq-email">Work email</label><input id="rq-email" name="email" type="email" autocomplete="email" maxlength="254" required></div>
+        <div class="field"><label for="rq-brand">Store or brand</label><input id="rq-brand" name="brand" type="text" autocomplete="organization" maxlength="120" required></div>
+        <div class="field"><label for="rq-url">Product page URL</label><input id="rq-url" name="product_url" type="url" inputmode="url" placeholder="https://your-store.com/products/your-product" maxlength="500" required></div>
+        <div class="field"><label for="rq-category">What is the product?</label><input id="rq-category" name="category" type="text" placeholder="For example: carry-on backpack" maxlength="120" required></div>
+        <div class="hp" aria-hidden="true"><label for="rq-website">Leave this empty</label><input id="rq-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <label class="consent"><input id="rq-consent" name="consent" type="checkbox" required> <span>Email me my report. SwishDM may also send me the occasional email, and I can opt out at any time.</span></label>
+        <button class="button button-primary" type="submit">Request my check</button>
+      </fieldset>
+      <p id="request-status" class="request-status" role="status" aria-live="polite"></p>
+    </form>
+  </div></section>
+
+  <section id="method" class="method-section" aria-labelledby="method-title"><div class="wrap">
+    <div class="section-heading"><div><span class="eyebrow">Open the workings</span><h2 id="method-title">You should be able to check our work.</h2></div><p>This is an exploratory study of carry-on travel backpacks. Here is what we collected, how we read it and where it falls short.</p></div>
+    <div class="method-stats"><div><strong>168</strong><span>web answers</span></div><div><strong>64</strong><span>separate API cross-checks</span></div><div><strong>14</strong><span>product topics</span></div><div><strong>5</strong><span>saved product pages</span></div></div>
+    <div class="pilot-note"><strong>A worked example, with a limited sample.</strong><p>SwishDM's full research standard is at least 100 repeats of each question before forming an opinion. This pilot has fewer repeats per question. Use it to explore the page check and inspect the evidence. A larger study would firm up the percentages.</p></div>
+    <div class="method-details">
+      <details open><summary>Which questions and AI tools did you use?</summary><div><p>We used four shopping situations, each written as a full question and a short search phrase. Web captures requested a US search session. We kept API answers separate because they can differ from the apps shoppers use.</p><div id="question-list"></div><div id="engine-counts"></div><p>Google AI Overviews were not available for every run. Ten short captures were excluded. The remaining answers include repeats and are not independent observations of shopper behaviour.</p></div></details>
+      <details><summary>How were the topics counted?</summary><div><p>A model read each answer and extracted the product details used in the response, with a supporting quote. Similar details were grouped into these 14 topics. A topic counts once per answer, even if it appears several times. Every quote shown here is checked against the saved answer.</p><p>A separate model rechecked 120 sampled extractions and accepted 110. This measures agreement on the sampled extractions. It gives no confidence level for the findings. Topic grouping and model judgements can still be wrong.</p><p>The filters recalculate the count and denominator from the recorded answers. Frequency tells you what appeared in this sample; it does not reveal a model's internal ranking rules or prove which details caused a recommendation.</p></div></details>
+      <details><summary>How is product-page coverage judged?</summary><div><p><strong>Clear:</strong> the captured page gives a concrete answer about the topic. <strong>Partial:</strong> it mentions the topic but leaves a basic fact unclear or inconsistent. <strong>Not found:</strong> we could not find an answer in the checked capture. <strong>Check capture:</strong> incomplete evidence prevents a fair judgement.</p><p>We check the specific product version, accept convertible units and count a clear statement that a feature is absent. A page does not need every optional feature in a topic. The count is unweighted: a clearly answered topic counts once.</p><p>The page grades were independently reviewed on 17 October. The original automated rubric was too demanding in places, so this report uses the revised evidence review. Optional improvements are separate from the basic coverage judgement.</p></div></details>
+      <details><summary>What can the captures tell us?</summary><div><p>Pages were fetched from Warsaw on 16 October. We read the returned HTML and product data. Osprey required a browser-rendered capture, while Cotopaxi's extracted text was incomplete. Those limits are shown alongside their findings.</p><p>These captures do not establish exactly what a search engine saw. A page may have information in another region, a linked policy or a section the extractor missed. Check the live page before changing it.</p><p>Prices, availability and airline rules change. AI answers may contain mistakes. Source excerpts are retained as evidence of what was said, with their original wording.</p></div></details>
+      <details><summary>Will these edits make AI recommend my product?</summary><div><p>We cannot promise that. Clear product information can help people understand and compare what you sell. Recommendations also depend on the question, reviews, other sources and the tool's behaviour.</p><p>Keep improving the store and its search performance, then measure AI visibility and how your product is described over time. <a href="https://developers.google.com/search/docs/appearance/ai-features" target="_blank" rel="noopener noreferrer">Google's guidance on AI search</a> also recommends making important content available as text and makes clear that inclusion is not guaranteed.</p></div></details>
+      <details><summary>What happens to URLs and personal information?</summary><div><p>The URL box in the example only opens one of the five saved reports. It does not fetch a website or submit anything. Checklist progress stays in this browser, and downloads are created here.</p><p>If you request a check, we keep your name, email, brand, product page and product type so we can prepare your report and email it to you. If you agree, SwishDM may also send you the occasional email. We do not sell your details. Reply to any of our emails to have them deleted.</p></div></details>
+    </div>
+  </div></section>
+</main>
+<footer class="wrap"><img src="assets/logo.png" width="148" height="36" alt="SwishDM"><p>Product-page research by SwishDM.</p><a href="#top">Back to the top</a></footer>
+<dialog id="evidence-dialog" aria-labelledby="evidence-title"><div class="dialog-top"><span class="small-label">Recorded research</span><button id="close-dialog" class="icon-button" aria-label="Close source evidence" type="button">×</button></div><h2 id="evidence-title"></h2><div id="evidence-content"></div></dialog>
+<div id="toast" class="toast" role="status" hidden></div>
+<noscript><div class="wrap notice">Enable JavaScript to explore the saved research and build your action list. The study method above is available without JavaScript.</div></noscript>
+</body>
+</html>
