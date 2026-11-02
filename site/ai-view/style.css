@@ -73,3 +73,34 @@
 .jk-actions{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center}
 .jk-alt{color:#fff;font-size:15px;font-weight:700}
 @media(max-width:760px){.how-reads{padding:22px}.lanes{grid-template-columns:1fr}.jk-cta{grid-template-columns:1fr;padding:0 24px;gap:0;border-radius:30px}.jk-photo{max-width:220px;justify-self:center;order:2}.jk-copy{padding-block:36px 8px}.jk-actions .button{width:100%}}
+/* 2026-11-02 readability pass: one body size (17), one small size (15), steps as copy + picture side by side */
+.hero-lead{font-size:19px;max-width:520px}
+.hero .ba{max-width:620px}
+.request-points{font-size:17px}
+.request-copy .help{font-size:15px}
+.step{grid-template-columns:minmax(0,420px) minmax(0,1fr);align-items:start;gap:32px;padding:32px}
+.step-copy{grid-column:1}
+.step>*:not(.step-copy){grid-column:2;justify-self:start}
+.step h3{font-size:28px;margin:6px 0 10px}
+.step p{font-size:17px}
+.step .button{margin-top:6px}
+.shot{max-width:560px}
+.shot-narrow{max-width:400px}
+.toolbar-pair{max-width:560px}
+.toolbar-pair figcaption,.step-ba figcaption{font-size:15px}
+.step-ba{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:420px}
+.step-ba figure{margin:0}
+.step-ba .shot{border-radius:18px}
+.step:has(.checklist){grid-template-columns:1fr}
+.step:has(.checklist)>*{grid-column:1}
+.checklist strong{font-size:17px}
+.checklist span{font-size:15px}
+.how-reads{padding:36px}
+.how-intro{font-size:20px}
+.lane li{font-size:17px}
+.how-foot,.culprit,.done-note{font-size:15px}
+.culprit{max-width:none}
+.dev-note p{font-size:17px}
+.jk-copy p{font-size:19px}
+@media(max-width:900px){.step{grid-template-columns:1fr;gap:20px;padding:24px}.step>*:not(.step-copy){grid-column:1}.step-ba{max-width:360px}}
+.step:has(.checklist)>.checklist,.step:has(.checklist)>.culprit{justify-self:stretch}
