@@ -63,6 +63,29 @@
     <span class="eyebrow"><i aria-hidden="true"></i> The guide</span>
     <h2 id="guide-title">Check your product page in five steps.</h2>
 
+    <div class="how-reads" aria-label="How a shopper's browser and ChatGPT's crawler read the same page">
+      <p class="how-intro">Before you start: when someone opens your product page, it arrives in two parts.</p>
+      <div class="lanes">
+        <div class="lane lane-shopper">
+          <span class="lane-tag">A shopper's browser</span>
+          <ol>
+            <li><b>1</b><span>Your store sends the page.</span></li>
+            <li><b>2</b><span>The browser runs your apps and scripts (JavaScript).</span></li>
+            <li class="lane-end ok"><b>✓</b><span>Reviews, stars, specs and price all appear.</span></li>
+          </ol>
+        </div>
+        <div class="lane lane-bot">
+          <span class="lane-tag">ChatGPT's crawler</span>
+          <ol>
+            <li><b>1</b><span>Your store sends the page.</span></li>
+            <li class="lane-skip"><b>✕</b><span>It doesn't run any scripts. It reads what's there and leaves.</span></li>
+            <li class="lane-end bad"><b>!</b><span>Anything your apps add later is missing.</span></li>
+          </ol>
+        </div>
+      </div>
+      <p class="how-foot">Claude's and Perplexity's crawlers work the same way. Google's crawler does run scripts, so Gemini usually sees the full page. The steps below switch scripts off in your own browser, so you see your page the way ChatGPT does.</p>
+    </div>
+
     <ol class="steps">
       <li class="step">
         <div class="step-copy"><span class="step-no">1</span><div><h3>Add the free Toggle JavaScript extension.</h3>
@@ -83,17 +106,18 @@
       </li>
       <li class="step">
         <div class="step-copy"><span class="step-no">4</span><div><h3>What's left is roughly what ChatGPT reads.</h3>
-          <p>ChatGPT's, Claude's and Perplexity's crawlers don't run JavaScript. Google's crawler does, so Gemini usually sees the full page. On the backpack page above, everything under the promo bar went blank.</p></div></div>
+          <p>Whatever is still on screen is roughly what ChatGPT reads. On the backpack page at the top, everything under the promo bar went blank.</p></div></div>
       </li>
       <li class="step">
         <div class="step-copy"><span class="step-no">5</span><div><h3>Check what's gone.</h3>
           <p>If any of these vanish, ChatGPT and the others are most likely missing them too. Tick them off as you go.</p></div></div>
         <ul class="checklist">
-          <li><label><input type="checkbox"> <span><strong>Your reviews</strong> What buyers wrote.</span></label></li>
-          <li><label><input type="checkbox"> <span><strong>Star rating and review count</strong> The number next to the stars.</span></label></li>
-          <li><label><input type="checkbox"> <span><strong>Specs and materials</strong> Features, sizes, fabrics.</span></label></li>
-          <li><label><input type="checkbox"> <span><strong>Your price</strong> Check it's still on the page.</span></label></li>
+          <li><label><input type="checkbox"> <span><strong>Your reviews</strong> AI answers quote what buyers say about a product.</span></label></li>
+          <li><label><input type="checkbox"> <span><strong>Star rating and review count</strong> AI often names the rating when it compares products.</span></label></li>
+          <li><label><input type="checkbox"> <span><strong>Specs and materials</strong> Sizes, features and fabrics are what products get compared on.</span></label></li>
+          <li><label><input type="checkbox"> <span><strong>Your price</strong> Without it, AI has to take the price from somewhere else.</span></label></li>
         </ul>
+        <p class="culprit"><strong>Reviews gone?</strong> That's the most common one. Review apps often load their widget after the page arrives. Many can also put the reviews straight into the page, so it's worth asking your developer or the app's support.</p>
       </li>
     </ol>
 
@@ -105,13 +129,21 @@
 
     <p class="done-note">Done? Click the JS icon again, or JavaScript stays off on every site you visit.</p>
 
-    <div class="next">
-      <h3>Want a second pair of eyes?</h3>
-      <p>We check which product details AI answers judge your category on, and which of them your page states in plain text.</p>
-      <a class="button button-primary" href="../ai-product-check/">See the AI product-page check</a>
+  </section>
+
+  <section class="jk-cta wrap" aria-labelledby="jk-title">
+    <div class="jk-photo"><img src="img/jonathan-kiekbusch.webp" width="520" height="648" alt="Jonathan Kiekbusch, founder of SwishDM" loading="lazy"></div>
+    <div class="jk-copy">
+      <span class="eyebrow jk-eyebrow"><i aria-hidden="true"></i> Jonathan Kiekbusch, Founder of SwishDM</span>
+      <h2 id="jk-title">Found something missing?</h2>
+      <p>Grab a time with me. We'll open your product page together, I'll show you what ChatGPT can and can't read, and what to fix first.</p>
+      <div class="jk-actions">
+        <a class="button button-primary" href="https://tidycal.com/m5llvq1/strategy-session" target="_blank" rel="noopener">Grab a time with Jonathan</a>
+        <a class="jk-alt" href="https://product-check.madebyswishdm.com/">Or get the free AI product-page check</a>
+      </div>
     </div>
   </section>
 </main>
-<footer class="wrap"><img src="img/logo.png" width="148" height="36" alt="SwishDM"><p>A free guide from SwishDM. Crawler behaviour from Vercel's December 2024 study of AI crawlers.</p><a href="#top">Back to the top</a></footer>
+<footer class="wrap"><img src="img/logo.png" width="148" height="36" alt="SwishDM"><p>A free guide from SwishDM. Crawler behaviour from Vercel's study of AI crawlers.</p><a href="#top">Back to the top</a></footer>
 </body>
 </html>
