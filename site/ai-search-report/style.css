@@ -109,6 +109,7 @@ body{overflow-x:hidden}
 .bands{border:0;margin:0;padding:0;min-width:0}
 .bands legend{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:8px;padding:0}
 .band-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.band-grid-3{grid-template-columns:1fr 1fr 1fr}
 .band{position:relative;display:block;cursor:pointer}
 .band input{position:absolute;opacity:0;width:1px;height:1px;min-height:0}
 .band span{display:flex;align-items:center;justify-content:center;min-height:49px;border:1px solid var(--line);border-radius:12px;padding:8px 10px;font-size:15px;font-weight:700;color:var(--navy);text-align:center;transition:background .15s,border-color .15s}

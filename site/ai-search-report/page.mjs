@@ -41,6 +41,7 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault();
   const f = new FormData(form);
   const band = clean(f.get('sales_band'));
+  const urgency = clean(f.get('urgency'));
   const first = clean(f.get('name')).split(' ')[0];
   if (clean(f.get('website'))) { done(QUALIFY.has(band), first || 'there', clean(f.get('email'))); return; }   // honeypot: look done, send nothing
   const store = https(f.get('store'));
@@ -49,14 +50,14 @@ form.addEventListener('submit', async (e) => {
   form.elements.page.value = page;
   if (!form.checkValidity()) {
     form.reportValidity();
-    say(!band ? 'Please pick your yearly online sales.' : 'Please check the details above.', false);
+    say(!band ? 'Please pick your yearly online sales.' : !urgency ? 'Please pick when you want this sorted.' : 'Please check the details above.', false);
     return;
   }
   let host = '';
   try { host = new URL(store).hostname.replace(/^www\./, ''); } catch (_) { host = store; }
   const row = {lead_magnet: 'ai-search-report', name: clean(f.get('name')), email: clean(f.get('email')).toLowerCase(),
     brand: host.slice(0, 120) || 'unknown', product_url: store, page_url: page || null, category: 'AI search report',
-    sales_band: band, consent: form.elements.consent.checked, user_agent: navigator.userAgent.slice(0, 400)};
+    sales_band: band, urgency, consent: form.elements.consent.checked, user_agent: navigator.userAgent.slice(0, 400)};
   fields.disabled = true; say('Sending...', true);
   try {
     const r = await fetch(ENDPOINT, {method: 'POST', headers: {apikey: ANON, Authorization: 'Bearer ' + ANON,

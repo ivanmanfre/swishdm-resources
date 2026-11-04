@@ -15,8 +15,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../ai-product-check/style.css">
-  <link rel="stylesheet" href="style.css">
-  <script type="module" src="page.mjs"></script>
+  <link rel="stylesheet" href="style.css?v=2">
+  <script type="module" src="page.mjs?v=2"></script>
 </head>
 <body>
 <a class="skip" href="#get">Skip to the form</a>
@@ -203,6 +203,14 @@
               <label class="band"><input type="radio" name="sales_band" value="500k_1m"><span>$500k to $1M</span></label>
               <label class="band"><input type="radio" name="sales_band" value="1m_5m"><span>$1M to $5M</span></label>
               <label class="band"><input type="radio" name="sales_band" value="5m_plus"><span>$5M+</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="bands">
+            <legend>When do you want this sorted?</legend>
+            <div class="band-grid band-grid-3">
+              <label class="band"><input type="radio" name="urgency" value="this_month" required><span>This month</span></label>
+              <label class="band"><input type="radio" name="urgency" value="next_3_months"><span>In the next 3 months</span></label>
+              <label class="band"><input type="radio" name="urgency" value="just_curious"><span>Just curious</span></label>
             </div>
           </fieldset>
           <div class="hp" aria-hidden="true"><label for="r-website">Leave this empty</label><input id="r-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
