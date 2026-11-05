@@ -8,7 +8,7 @@ The page shows the text version until a video is set. The text stays under the v
    Keep it under 50 MB (GitHub refuses files over 100 MB). A 2 minute 1080p export at about 3 Mbps is around 45 MB.
 2. In `site/before-your-call/page.mjs`, change the one line:
    `const VIDEO = '';` to `const VIDEO = 'video/before-your-call.mp4';`
-3. Bump `page.mjs?v=1` to `?v=2` in `index.html` so phones load the new script.
+3. Bump the `page.mjs?v=` number in `index.html` by one so phones load the new script.
 4. Commit and `git push` to `main`. GitHub Pages publishes in about a minute.
 
 **Option B, a YouTube (unlisted), Loom or Vimeo link:** paste the share link into the same line, for example
