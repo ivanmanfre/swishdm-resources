@@ -1,0 +1,53 @@
+/* Before your call: reuses ../ai-product-check/style.css (tokens, header, buttons, footer). Only this page's pieces here. */
+html,body{overflow-x:hidden}
+.site-header,footer.wrap{width:min(860px,calc(100% - 64px))}
+.pc-hero{padding-block:8px 32px;max-width:860px}
+.pc-hero h1{font-size:clamp(40px,5.2vw,64px);max-width:860px}
+.pc-hero .hero-lead{margin-top:18px;margin-bottom:0}
+
+.pc-slot{max-width:860px;padding-bottom:40px}
+.pc-player{margin-bottom:18px;border-radius:30px;overflow:hidden;background:var(--navy);box-shadow:0 18px 40px rgba(1,13,104,.22)}
+.pc-player video{display:block;width:100%;height:auto;max-height:80vh;background:#000}
+.pc-frame{position:relative;aspect-ratio:16/9}
+.pc-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.pc-read{font-size:15px;color:var(--muted);margin:0 0 12px 6px}
+
+.pc-card{background:#fff;border:1px solid var(--grey);border-radius:30px;padding:10px 34px}
+.pc-block{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:18px;padding-block:26px;border-bottom:1px solid var(--grey)}
+.pc-block:last-child{border-bottom:0}
+.pc-block>*{grid-column:2}
+.pc-n{grid-column:1;grid-row:1 / span 2;display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--orange-dark);color:#fff;font:500 21px/1 Oswald,sans-serif}
+.pc-block h2{font-size:30px;margin:4px 0 12px}
+.pc-block ul{margin:0;padding-left:20px}
+.pc-block li{margin-bottom:8px}
+.pc-block li:last-child{margin-bottom:0}
+.pc-block p{margin:0}
+.pc-check{list-style:none;padding-left:0!important}
+.pc-check li{position:relative;padding-left:30px}
+.pc-check li::before{content:"✓";position:absolute;left:0;top:2px;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--blue-dark);color:#fff;font-size:11px;font-weight:700}
+.pc-check b{color:var(--navy)}
+
+.pc-sign{max-width:860px;display:flex;align-items:center;gap:22px;background:var(--navy);color:#fff;border-radius:999px;padding:12px 34px 12px 12px;margin-bottom:56px}
+.pc-sign img{width:92px;height:92px;object-fit:cover;object-position:top;border-radius:50%;background:var(--pale-blue);flex:none}
+.pc-sign p{margin:0}
+.pc-sign-line{font:500 26px/1.2 Oswald,sans-serif}
+.pc-sign-name{font-size:15px;font-weight:700;margin-top:2px!important}
+.pc-sign-note{font-size:14px;color:#C9D3FF;margin-top:6px!important}
+
+@media(max-width:760px){
+  .site-header{min-height:84px}
+  .site-header,footer.wrap{width:calc(100% - 36px)}
+  .pc-hero{padding-block:0 22px}
+  .pc-hero h1{font-size:clamp(36px,10vw,52px)}
+  .pc-hero .hero-lead{font-size:18px}
+  .pc-slot{padding-bottom:28px}
+  .pc-player{border-radius:22px}
+  .pc-card{padding:2px 18px;border-radius:24px}
+  .pc-block{grid-template-columns:34px minmax(0,1fr);column-gap:12px;padding-block:20px}
+  .pc-n{width:32px;height:32px;font-size:17px}
+  .pc-block h2{font-size:24px;margin:2px 0 10px}
+  .pc-block li,.pc-block p{font-size:16px}
+  .pc-sign{border-radius:26px;padding:14px 18px 14px 14px;gap:14px;margin-bottom:36px}
+  .pc-sign img{width:68px;height:68px}
+  .pc-sign-line{font-size:21px}
+}

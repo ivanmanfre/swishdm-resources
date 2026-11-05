@@ -6,6 +6,7 @@ from `site/` on every push to `main`.
 | Path | What it is |
 |---|---|
 | `/` | Redirect to https://swishdm.com/ (noindex) |
+| `/before-your-call/` | Pre-call page for people who booked a call with Jonathan (noindex). Linked from the booking email. Video steps: `BEFORE-YOUR-CALL-VIDEO.md` |
 | `/board/` | SwishDM's content board (white-label build of the client board, slug `swishdm-live`) |
 | anything else | `404.html` sends visitors to https://swishdm.com/ (noindex); stray `/board/...` paths go back to `/board/` |
 
