@@ -25,6 +25,3 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          # the site is ~212 MB; GitHub's sync now takes ~10 min, the default limit
-          timeout: 1800000
