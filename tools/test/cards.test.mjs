@@ -8,7 +8,7 @@ const dims = (f) => { const b = fs.readFileSync(f); assert.equal(b.toString('lat
 test('good tag gets a 1200x627 card, broken tag the generic card, no tag no card, exit 0', () => {
   const d = fs.mkdtempSync(path.join(os.tmpdir(), 'cards-'));
   const put = (t, html) => { fs.mkdirSync(path.join(d, t)); fs.writeFileSync(path.join(d, t, 'index.html'), html); };
-  put('aaaaaaaaaaaaaaaaaaaa', page(esc(JSON.stringify({ brand: "Quick 'n Brite", line: 'Branch Basics is named in 4 of 4 answers to “fragrance free cleaner”. Quick \'n Brite is named in 0.', n: 4, of: 4, tone: 'riv', stamp: "Quick 'n Brite was not in this answer" }))));
+  put('aaaaaaaaaaaaaaaaaaaa', page(esc(JSON.stringify({ brand: "Fenwick 'n Pine", line: 'Larkmoor Goods is named in 4 of 4 answers to “fragrance free cleaner”. Fenwick \'n Pine is named in 0.', n: 4, of: 4, tone: 'riv', stamp: "Fenwick 'n Pine was not in this answer" }))));
   put('bbbbbbbbbbbbbbbbbbbb', page('{not json'));
   put('cccccccccccccccccccc', page(null));
   put('dddddddddddddddddddd', page(esc(JSON.stringify({ brand: 'B'.repeat(60), line: 'word '.repeat(44).trim(), n: 12, of: 16, tone: 'own', stamp: '' }))));
@@ -24,7 +24,7 @@ test('line wrapping: at most 4 lines of 34 characters, cut with an ellipsis', as
   const { wrap } = await import(script);
   const w = wrap('word '.repeat(44).trim(), 34, 4);
   assert.equal(w.length, 4); assert.ok(w.every(l => l.length <= 34)); assert.ok(w[3].endsWith('…'));
-  assert.deepEqual(wrap('Stan\'s is named in 16 of 16 answers.', 34, 4), ["Stan's is named in 16 of 16", 'answers.']);
+  assert.deepEqual(wrap('Pellow\'s is named in 16 of 16 answers.', 34, 4), ["Pellow's is named in 16 of 16", 'answers.']);
 });
 test('a brand count of 0 or 1 is never drawn large: the stamp takes its place', async () => {
   const { render } = await import(script); const mod = await import(script);
