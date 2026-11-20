@@ -19,6 +19,18 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: actions/configure-pages@v5
+      # Link-preview cards (2026-11-17): drawn from each report page's own swishdm:card tag into the artifact only.
+      # A failure here never blocks the deploy: pages without a card keep working, and a page whose tag can not be drawn
+      # gets the generic card.
+      - uses: actions/setup-node@v4
+        continue-on-error: true
+        with:
+          node-version: 20
+      - name: Draw report link-preview cards
+        continue-on-error: true
+        run: |
+          npm ci --prefix tools --no-audit --no-fund
+          node tools/cards.mjs site/compare
       - uses: actions/upload-pages-artifact@v4
         with:
           path: site

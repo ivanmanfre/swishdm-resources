@@ -1,0 +1,8 @@
+{
+  "name": "swishdm-resources-tools",
+  "private": true,
+  "type": "module",
+  "description": "Build-time helpers for the Pages deploy (link-preview cards for report pages).",
+  "scripts": { "cards": "node cards.mjs ../site/compare", "test": "node --test test/" },
+  "dependencies": { "@resvg/resvg-js": "2.6.2" }
+}
