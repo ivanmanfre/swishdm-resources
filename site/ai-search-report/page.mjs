@@ -3,7 +3,7 @@
 // built only for stores at $1M+ a year online and a person checks each one before it is emailed by hand.
 // Nothing here emails anyone. A DB trigger flags each new request for a person to check.
 const ENDPOINT = 'https://bjbvqvzbzczjbatgmccb.supabase.co/rest/v1/swishdm_lm_requests';
-const ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqYnZxdnpiemN6amJhdGdtY2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgzMDUwODAsImV4cCI6MjA4Mzg4MTA4MH0.yqghcn-Rw5dIFadLhvUASIeUARPvu_CyPOGayI8KyTI';
+const ANON = 'sb_publishable_Q-kfisfhqxXV5xiIhCduMQ_QSIflf4h';
 const QUALIFY = new Set(['1m_5m', '5m_plus']);
 
 // Today | With the change control on phones

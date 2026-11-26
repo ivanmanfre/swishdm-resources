@@ -2,7 +2,7 @@
 // listed columns (column grant + RLS policy); it cannot read, change or delete anything. Reports are prepared and
 // checked by a person, then emailed by hand. Nothing here emails anyone.
 const ENDPOINT = 'https://bjbvqvzbzczjbatgmccb.supabase.co/rest/v1/swishdm_lm_requests';
-const ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqYnZxdnpiemN6amJhdGdtY2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgzMDUwODAsImV4cCI6MjA4Mzg4MTA4MH0.yqghcn-Rw5dIFadLhvUASIeUARPvu_CyPOGayI8KyTI';
+const ANON = 'sb_publishable_Q-kfisfhqxXV5xiIhCduMQ_QSIflf4h';
 const form = document.getElementById('request-form');
 const fields = document.getElementById('request-fields');
 const status = document.getElementById('request-status');

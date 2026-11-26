@@ -2,7 +2,7 @@
 // The public anon key can only INSERT the listed columns (column grant + RLS policy); it cannot read, change or
 // delete anything. The guide opens on the page once the row is in (or was already in). Nothing here emails anyone.
 const ENDPOINT = 'https://bjbvqvzbzczjbatgmccb.supabase.co/rest/v1/swishdm_lm_requests';
-const ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJqYnZxdnpiemN6amJhdGdtY2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgzMDUwODAsImV4cCI6MjA4Mzg4MTA4MH0.yqghcn-Rw5dIFadLhvUASIeUARPvu_CyPOGayI8KyTI';
+const ANON = 'sb_publishable_Q-kfisfhqxXV5xiIhCduMQ_QSIflf4h';
 const KEY = 'swishdm-ai-view-guide';
 const form = document.getElementById('gate-form');
 const fields = document.getElementById('gate-fields');
