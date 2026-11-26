@@ -6,6 +6,31 @@ const ENDPOINT = 'https://bjbvqvzbzczjbatgmccb.supabase.co/rest/v1/swishdm_lm_re
 const ANON = 'sb_publishable_Q-kfisfhqxXV5xiIhCduMQ_QSIflf4h';
 const QUALIFY = new Set(['1m_5m', '5m_plus']);
 
+// Visit + funnel tracking: a 1px GET to the shared page-open tracker, which logs a page_opens row
+// (page swishdm/ai-search-report[/step], country, network, referrer). Logged only, never rings.
+// No form contents are sent. Open the page once with ?me=1 to mute this browser for good.
+const TRACK = 'https://n8n.ivanmanfredi.com/webhook/page-open';
+const track = (() => {
+  let muted = false, vid = '', ref = '';
+  try {
+    const qs = new URLSearchParams(location.search);
+    if (qs.get('me') === '1') localStorage.setItem('ios_me', '1');
+    muted = localStorage.getItem('ios_me') === '1';
+    vid = localStorage.getItem('swd_v') || '';
+    if (!vid) { vid = Math.random().toString(36).slice(2, 12) + Date.now().toString(36); localStorage.setItem('swd_v', vid); }
+    const utm = ['src', 'utm_source', 'utm_medium', 'utm_campaign'].map((k) => qs.get(k) ? k + '=' + qs.get(k) : '').filter(Boolean).join('&');
+    ref = [document.referrer, utm].filter(Boolean).join(' ');
+  } catch (_) { /* storage blocked: still track, unmuted */ }
+  return (step) => {
+    if (muted) return;
+    const key = 'swd_t_' + (step || 'view');
+    try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, '1'); } catch (_) { /* fire anyway */ }
+    const p = 'swishdm/ai-search-report' + (step ? '/' + step : '');
+    new Image().src = TRACK + '?p=' + encodeURIComponent(p) + '&v=' + encodeURIComponent(vid) + '&r=' + encodeURIComponent(ref.slice(0, 280));
+  };
+})();
+track();
+
 // Today | With the change control on phones
 for (const ba of document.querySelectorAll('.ba')) {
   const btns = ba.querySelectorAll('.ba-seg button');
@@ -18,6 +43,10 @@ for (const ba of document.querySelectorAll('.ba')) {
 const form = document.getElementById('request-form');
 const fields = document.getElementById('request-fields');
 const status = document.getElementById('request-status');
+try {
+  new IntersectionObserver((es, o) => { if (es.some((e) => e.isIntersecting)) { track('form-seen'); o.disconnect(); } }).observe(form);
+} catch (_) { /* old browser: skip this step */ }
+form.addEventListener('focusin', () => track('form-start'));
 const say = (t, ok) => { status.textContent = t; status.dataset.state = ok ? 'ok' : 'error'; };
 const clean = (v) => String(v || '').replace(/\s+/g, ' ').trim();
 const https = (v) => {
@@ -50,6 +79,7 @@ form.addEventListener('submit', async (e) => {
   form.elements.page.value = page;
   if (!form.checkValidity()) {
     form.reportValidity();
+    track('submit-invalid');
     say(!band ? 'Please pick your yearly online sales.' : !urgency ? 'Please pick when you want this sorted.' : 'Please check the details above.', false);
     return;
   }
@@ -62,14 +92,16 @@ form.addEventListener('submit', async (e) => {
   try {
     const r = await fetch(ENDPOINT, {method: 'POST', headers: {apikey: ANON, Authorization: 'Bearer ' + ANON,
       'Content-Type': 'application/json', Prefer: 'return=minimal'}, body: JSON.stringify(row)});
-    if (r.ok) { say('', true); done(QUALIFY.has(band), first, row.email); return; }
+    if (r.ok) { track(QUALIFY.has(band) ? 'sent-qualifies' : 'sent-under-1m'); say('', true); done(QUALIFY.has(band), first, row.email); return; }
     if (r.status === 409) {
+      track('sent-duplicate');
       if (!QUALIFY.has(band)) { say('', true); done(false, first, row.email); return; }
       fields.disabled = false;
       say('We already have a request for this store from this email. We\'ll be in touch.', true);
       return;
     }
+    track('error-' + r.status);
     fields.disabled = false;
     say(r.status === 400 ? 'Please check the details: your store and product page need to be full web addresses.' : 'That did not go through. Please try again in a minute.', false);
-  } catch (_) { fields.disabled = false; say('That did not go through. Please try again in a minute.', false); }
+  } catch (_) { track('error-network'); fields.disabled = false; say('That did not go through. Please try again in a minute.', false); }
 });
